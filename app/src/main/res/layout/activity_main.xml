@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="14dp"
+            android:src="@drawable/i_quiz_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="Test Your Islamic Knowledge"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!--Start Bar Display-->
+        <LinearLayout
+            android:id="@+id/start_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/player_name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter your name"
+                android:textAlignment="center" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="quizOne"
+                android:text="start quiz" />
+        </LinearLayout>
+
+        <!--Quiz One Display-->
+        <TextView
+            android:id="@+id/quiz_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. ------ is the total submission to the will of almighty Allah."
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <RadioGroup
+            android:id="@+id/quiz_one_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/quiz_one_option_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizOne"
+                android:text="Islam" />
+
+            <RadioButton
+                android:id="@+id/quiz_one_option_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizOne"
+                android:text="Eeman" />
+
+            <RadioButton
+                android:id="@+id/quiz_one_option_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizOne"
+                android:text="Ikhlas" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/go_to_quiz_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:onClick="quizTwo"
+            android:text="next"
+            android:visibility="gone" />
+
+        <!--Quiz two display-->
+        <TextView
+            android:id="@+id/quiz_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. ----- conquered Egypt for Islam during the tenure of caliph -----"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <RadioGroup
+            android:id="@+id/quiz_two_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/quiz_two_option_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizTwo"
+                android:text="Khaleed bn Waleed, Abubakr bn Abi Qahaafah" />
+
+            <RadioButton
+                android:id="@+id/quiz_two_option_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizTwo"
+                android:text="Khaleed bn Waleed, Umar bn al-Khattaab" />
+
+            <RadioButton
+                android:id="@+id/quiz_two_option_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizTwo"
+                android:text="Amr bn 'Aas, Umar bn al-Khattaab" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/go_to_quiz_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:onClick="quizThree"
+            android:text="next"
+            android:visibility="gone" />
+
+        <!--Quiz three display-->
+        <TextView
+            android:id="@+id/quiz_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Prophetic hadeeth may represent his "
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <RadioGroup
+            android:id="@+id/quiz_three_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/quiz_three_option_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizThree"
+                android:text="sayings and actions only" />
+
+            <RadioButton
+                android:id="@+id/quiz_three_option_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizThree"
+                android:text="actions, sayings and approval" />
+
+            <RadioButton
+                android:id="@+id/quiz_three_option_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizThree"
+                android:text="sayings and approval only" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/go_to_quiz_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:onClick="quizFour"
+            android:text="next"
+            android:visibility="gone" />
+
+        <!--Quiz four display-->
+        <TextView
+            android:id="@+id/quiz_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. Sunan Rawaatib in totality equals"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <RadioGroup
+            android:id="@+id/quiz_four_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/quiz_four_option_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizFour"
+                android:text="13 rakaats" />
+
+            <RadioButton
+                android:id="@+id/quiz_four_option_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizFour"
+                android:text="11 rakaats" />
+
+            <RadioButton
+                android:id="@+id/quiz_four_option_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizFour"
+                android:text="12 rakaats" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/go_to_quiz_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:onClick="quizFive"
+            android:text="next"
+            android:visibility="gone" />
+
+        <!--Quiz four display-->
+        <TextView
+            android:id="@+id/quiz_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5. A father, mother and male sibling survived a dead muslim man. What is the inheritance portion of the sibling? "
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <RadioGroup
+            android:id="@+id/quiz_five_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/quiz_five_option_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizFive"
+                android:text="0" />
+
+            <RadioButton
+                android:id="@+id/quiz_five_option_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizFive"
+                android:text="1/6" />
+
+            <RadioButton
+                android:id="@+id/quiz_five_option_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="solveQuizFive"
+                android:text="1/3" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/report_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:onClick="reportCard"
+            android:text="report card"
+            android:visibility="gone" />
+        <!--Summary Report Display-->
+        <TextView
+            android:id="@+id/summary_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/try_again"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="reset"
+            android:text="Try Again"
+            android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>
