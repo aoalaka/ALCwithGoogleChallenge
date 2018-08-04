@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         //        quiz 1 comes up
         TextView quizOneDisplay = (TextView) findViewById(R.id.quiz_one);
         quizOneDisplay.setVisibility(View.VISIBLE);
-        RadioGroup quizOneOptions = (RadioGroup) findViewById(R.id.quiz_one_options);
-        quizOneOptions.setVisibility(View.VISIBLE);
+        RadioGroup quizOneOptionsDisplay = (RadioGroup) findViewById(R.id.quiz_one_options);
+        quizOneOptionsDisplay.setVisibility(View.VISIBLE);
 
         LinearLayout hideStartBar = (LinearLayout) findViewById(R.id.start_bar);
         hideStartBar.setVisibility(View.GONE);
@@ -237,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
                 + totalPoint);
     }
 
-    public void reset (View view){
+    public void reset(View view) {
         LinearLayout hideStartBar = (LinearLayout) findViewById(R.id.start_bar);
         hideStartBar.setVisibility(View.VISIBLE);
 
@@ -246,7 +246,23 @@ public class MainActivity extends AppCompatActivity {
 
         Button replay = (Button) findViewById(R.id.try_again);
         replay.setVisibility(View.GONE);
+        scorePoint = 0;
+        numberOfQuizLeft = 5;
 
+        RadioGroup quizOneOptions = (RadioGroup) findViewById(R.id.quiz_one_options);
+        quizOneOptions.clearCheck();
+
+        RadioGroup quizTwoOptions = (RadioGroup) findViewById(R.id.quiz_two_options);
+        quizTwoOptions.clearCheck();
+
+        RadioGroup quizThreeOptions = (RadioGroup) findViewById(R.id.quiz_three_options);
+        quizThreeOptions.clearCheck();
+
+        RadioGroup quizFourOptions = (RadioGroup) findViewById(R.id.quiz_four_options);
+        quizFourOptions.clearCheck();
+
+        RadioGroup quizFiveOptions = (RadioGroup) findViewById(R.id.quiz_five_options);
+        quizFiveOptions.clearCheck();
     }
 
     public int scoreCalculator(int latestScore) {
