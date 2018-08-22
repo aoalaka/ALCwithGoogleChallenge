@@ -40,17 +40,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter your name"
-                android:textAlignment="center" />
+                android:imeOptions="actionGo"
+                android:inputType="textCapWords"
+                android:textAlignment="center"
+                android:singleLine="true"
+                 />
 
             <Button
+                android:id="@+id/start_quiz_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:enabled="false"
                 android:onClick="quizOne"
                 android:text="start quiz" />
         </LinearLayout>
 
-        <!--Quiz One Display-->
         <TextView
             android:id="@+id/quiz_one"
             android:layout_width="wrap_content"

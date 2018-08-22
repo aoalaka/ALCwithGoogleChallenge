@@ -2,7 +2,9 @@ package com.example.android.islamicquizzer;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -14,12 +16,26 @@ public class MainActivity extends AppCompatActivity {
     int scorePoint = 0;
     int totalPoint = 125;
     int numberOfQuizLeft = 5;
+    String remark = "";
+
 
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        EditText playerNameEntered = (EditText) findViewById(R.id.player_name_input);
+        playerNameEntered.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_GO || actionId == EditorInfo.IME_ACTION_UNSPECIFIED) {
+                    Button startQuizButton = (Button) findViewById(R.id.start_quiz_button);
+                    startQuizButton.setEnabled(true);
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     /*
@@ -27,14 +43,13 @@ public class MainActivity extends AppCompatActivity {
      * */
 
     public void quizOne(View view) {
-        //        quiz 1 comes up
-        TextView quizOneDisplay = (TextView) findViewById(R.id.quiz_one);
+        View quizOneDisplay = (View) findViewById(R.id.quiz_one);
         quizOneDisplay.setVisibility(View.VISIBLE);
         RadioGroup quizOneOptionsDisplay = (RadioGroup) findViewById(R.id.quiz_one_options);
         quizOneOptionsDisplay.setVisibility(View.VISIBLE);
-
         LinearLayout hideStartBar = (LinearLayout) findViewById(R.id.start_bar);
         hideStartBar.setVisibility(View.GONE);
+
     }
 
     public void solveQuizOne(View view) {
@@ -213,16 +228,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+//    private static final String TAG = "MyActivity";
 
     public void reportCard(View view) {
         Button printReportCard = (Button) findViewById(R.id.report_card);
         printReportCard.setVisibility(View.GONE);
-
-        TextView quizFiveDisplay = (TextView) findViewById(R.id.quiz_five);
-        quizFiveDisplay.setVisibility(View.GONE);
-
-        RadioGroup quizFiveOptions = (RadioGroup) findViewById(R.id.quiz_five_options);
-        quizFiveOptions.setVisibility(View.GONE);
 
         TextView summaryReport = (TextView) findViewById(R.id.summary_report);
         summaryReport.setVisibility(View.VISIBLE);
@@ -233,8 +243,11 @@ public class MainActivity extends AppCompatActivity {
         EditText retrievePlayerName = (EditText) findViewById(R.id.player_name_input);
         String playerName = retrievePlayerName.getText().toString();
 
-        summaryReport.setText("Ahsant! Baaraka lLahu fiik, " + playerName + "." + "\nYour score is " + scorePoint + " out of "
-                + totalPoint);
+        int grade = scorePoint * 100;
+        grade = grade / totalPoint;
+
+        String remark = printRemark(grade);
+        summaryReport.setText(playerName + "\nScore: " + grade + "%" + "\nGrade: " + remark);
     }
 
     public void reset(View view) {
@@ -274,4 +287,22 @@ public class MainActivity extends AppCompatActivity {
         numberOfQuizLeft -= 1;
         return numberOfQuizLeft;
     }
+
+    public String printRemark(int grade) {
+        if (grade == 0) {
+            remark = "very poor";
+        } else if (grade == 20) {
+            remark = "poor";
+        } else if (grade == 40) {
+            remark = "fair";
+        } else if (grade == 60) {
+            remark = "good";
+        } else if (grade == 80) {
+            remark = "very good";
+        } else if (grade == 100) {
+            remark = "excellent";
+        }
+        return remark;
+    }
 }
+
