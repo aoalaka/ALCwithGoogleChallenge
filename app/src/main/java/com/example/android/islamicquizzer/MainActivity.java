@@ -1,10 +1,12 @@
 package com.example.android.islamicquizzer;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -24,12 +26,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        EditText playerNameEntered = (EditText) findViewById(R.id.player_name_input);
+        EditText playerNameEntered = findViewById(R.id.player_name_input);
         playerNameEntered.setOnEditorActionListener(new EditText.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_GO || actionId == EditorInfo.IME_ACTION_UNSPECIFIED) {
-                    Button startQuizButton = (Button) findViewById(R.id.start_quiz_button);
+                if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_UNSPECIFIED) {
+                    InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    Button startQuizButton = findViewById(R.id.start_quiz_button);
                     startQuizButton.setEnabled(true);
                     return true;
                 }
@@ -43,18 +47,18 @@ public class MainActivity extends AppCompatActivity {
      * */
 
     public void quizOne(View view) {
-        View quizOneDisplay = (View) findViewById(R.id.quiz_one);
+        View quizOneDisplay = findViewById(R.id.quiz_one);
         quizOneDisplay.setVisibility(View.VISIBLE);
-        RadioGroup quizOneOptionsDisplay = (RadioGroup) findViewById(R.id.quiz_one_options);
+        RadioGroup quizOneOptionsDisplay = findViewById(R.id.quiz_one_options);
         quizOneOptionsDisplay.setVisibility(View.VISIBLE);
-        LinearLayout hideStartBar = (LinearLayout) findViewById(R.id.start_bar);
+        LinearLayout hideStartBar = findViewById(R.id.start_bar);
         hideStartBar.setVisibility(View.GONE);
 
     }
 
     public void solveQuizOne(View view) {
-        TextView quizOneDisplay = (TextView) findViewById(R.id.quiz_one);
-        RadioGroup quizOneOptions = (RadioGroup) findViewById(R.id.quiz_one_options);
+        TextView quizOneDisplay = findViewById(R.id.quiz_one);
+        RadioGroup quizOneOptions = findViewById(R.id.quiz_one_options);
         int answerForQuizOne = quizOneOptions.getCheckedRadioButtonId();
 
         if (answerForQuizOne == R.id.quiz_one_option_a) {
@@ -63,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Ma sha'a Allah! You're very correct! " + numberOfQuizLeft + " more to go!", Toast.LENGTH_SHORT).show();
             quizOneDisplay.setVisibility(View.GONE);
             quizOneOptions.setVisibility(View.GONE);
-            Button toQuizTwoButton = (Button) findViewById(R.id.go_to_quiz_two);
+            Button toQuizTwoButton = findViewById(R.id.go_to_quiz_two);
             toQuizTwoButton.setVisibility(View.VISIBLE);
 
         } else {
@@ -72,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "SubhaanAllah! You're wrong! " + numberOfQuizLeft + " more to go!", Toast.LENGTH_SHORT).show();
             quizOneDisplay.setVisibility(View.GONE);
             quizOneOptions.setVisibility(View.GONE);
-            Button toQuizTwoButton = (Button) findViewById(R.id.go_to_quiz_two);
+            Button toQuizTwoButton = findViewById(R.id.go_to_quiz_two);
             toQuizTwoButton.setVisibility(View.VISIBLE);
         }
     }
@@ -82,17 +86,17 @@ public class MainActivity extends AppCompatActivity {
      * */
     public void quizTwo(View view) {
         //        quiz 2 comes up
-        Button toQuizTwoButton = (Button) findViewById(R.id.go_to_quiz_two);
+        Button toQuizTwoButton = findViewById(R.id.go_to_quiz_two);
         toQuizTwoButton.setVisibility(View.GONE);
-        TextView quizTwoDisplay = (TextView) findViewById(R.id.quiz_two);
+        TextView quizTwoDisplay = findViewById(R.id.quiz_two);
         quizTwoDisplay.setVisibility(View.VISIBLE);
-        RadioGroup quizTwoOptionsDisplay = (RadioGroup) findViewById(R.id.quiz_two_options);
+        RadioGroup quizTwoOptionsDisplay = findViewById(R.id.quiz_two_options);
         quizTwoOptionsDisplay.setVisibility(View.VISIBLE);
     }
 
     public void solveQuizTwo(View view) {
-        TextView quizTwoDisplay = (TextView) findViewById(R.id.quiz_two);
-        RadioGroup quizTwoOptions = (RadioGroup) findViewById(R.id.quiz_two_options);
+        TextView quizTwoDisplay = findViewById(R.id.quiz_two);
+        RadioGroup quizTwoOptions = findViewById(R.id.quiz_two_options);
         int answerForQuizTwo = quizTwoOptions.getCheckedRadioButtonId();
 
         if (answerForQuizTwo == R.id.quiz_two_option_c) {
@@ -101,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Ma sha'a Allah! You're very correct! " + numberOfQuizLeft + " more to go!", Toast.LENGTH_SHORT).show();
             quizTwoDisplay.setVisibility(View.GONE);
             quizTwoOptions.setVisibility(View.GONE);
-            Button toQuizThreeButton = (Button) findViewById(R.id.go_to_quiz_three);
+            Button toQuizThreeButton = findViewById(R.id.go_to_quiz_three);
             toQuizThreeButton.setVisibility(View.VISIBLE);
 
         } else {
@@ -110,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "SubhaanAllah! You're wrong! " + numberOfQuizLeft + " more to go!", Toast.LENGTH_SHORT).show();
             quizTwoDisplay.setVisibility(View.GONE);
             quizTwoOptions.setVisibility(View.GONE);
-            Button toQuizThreeButton = (Button) findViewById(R.id.go_to_quiz_three);
+            Button toQuizThreeButton = findViewById(R.id.go_to_quiz_three);
             toQuizThreeButton.setVisibility(View.VISIBLE);
         }
     }
@@ -121,17 +125,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void quizThree(View view) {
         //        quiz 3 comes up
-        Button toQuizThreeButton = (Button) findViewById(R.id.go_to_quiz_three);
+        Button toQuizThreeButton = findViewById(R.id.go_to_quiz_three);
         toQuizThreeButton.setVisibility(View.GONE);
-        TextView quizThreeDisplay = (TextView) findViewById(R.id.quiz_three);
+        TextView quizThreeDisplay = findViewById(R.id.quiz_three);
         quizThreeDisplay.setVisibility(View.VISIBLE);
-        RadioGroup quizThreeOptionsDisplay = (RadioGroup) findViewById(R.id.quiz_three_options);
+        RadioGroup quizThreeOptionsDisplay = findViewById(R.id.quiz_three_options);
         quizThreeOptionsDisplay.setVisibility(View.VISIBLE);
     }
 
     public void solveQuizThree(View view) {
-        TextView quizThreeDisplay = (TextView) findViewById(R.id.quiz_three);
-        RadioGroup quizThreeOptions = (RadioGroup) findViewById(R.id.quiz_three_options);
+        TextView quizThreeDisplay = findViewById(R.id.quiz_three);
+        RadioGroup quizThreeOptions = findViewById(R.id.quiz_three_options);
         int answerForQuizThree = quizThreeOptions.getCheckedRadioButtonId();
 
         if (answerForQuizThree == R.id.quiz_three_option_b) {
@@ -140,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Ma sha'a Allah! You're very correct! " + numberOfQuizLeft + " more to go!", Toast.LENGTH_SHORT).show();
             quizThreeDisplay.setVisibility(View.GONE);
             quizThreeOptions.setVisibility(View.GONE);
-            Button toQuizFourButton = (Button) findViewById(R.id.go_to_quiz_four);
+            Button toQuizFourButton = findViewById(R.id.go_to_quiz_four);
             toQuizFourButton.setVisibility(View.VISIBLE);
 
         } else {
@@ -149,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "SubhaanAllah! You're wrong! " + numberOfQuizLeft + " more to go!", Toast.LENGTH_SHORT).show();
             quizThreeDisplay.setVisibility(View.GONE);
             quizThreeOptions.setVisibility(View.GONE);
-            Button toQuizFourButton = (Button) findViewById(R.id.go_to_quiz_four);
+            Button toQuizFourButton = findViewById(R.id.go_to_quiz_four);
             toQuizFourButton.setVisibility(View.VISIBLE);
         }
     }
@@ -159,17 +163,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void quizFour(View view) {
         //        quiz 4 comes up
-        Button toQuizFourButton = (Button) findViewById(R.id.go_to_quiz_four);
+        Button toQuizFourButton = findViewById(R.id.go_to_quiz_four);
         toQuizFourButton.setVisibility(View.GONE);
-        TextView quizFourDisplay = (TextView) findViewById(R.id.quiz_four);
+        TextView quizFourDisplay = findViewById(R.id.quiz_four);
         quizFourDisplay.setVisibility(View.VISIBLE);
-        RadioGroup quizFourOptionsDisplay = (RadioGroup) findViewById(R.id.quiz_four_options);
+        RadioGroup quizFourOptionsDisplay = findViewById(R.id.quiz_four_options);
         quizFourOptionsDisplay.setVisibility(View.VISIBLE);
     }
 
     public void solveQuizFour(View view) {
-        TextView quizFourDisplay = (TextView) findViewById(R.id.quiz_four);
-        RadioGroup quizFourOptions = (RadioGroup) findViewById(R.id.quiz_four_options);
+        TextView quizFourDisplay = findViewById(R.id.quiz_four);
+        RadioGroup quizFourOptions = findViewById(R.id.quiz_four_options);
         int answerForQuizFour = quizFourOptions.getCheckedRadioButtonId();
 
         if (answerForQuizFour == R.id.quiz_four_option_c) {
@@ -178,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Ma sha'a Allah! You're very correct! " + numberOfQuizLeft + " more to go!", Toast.LENGTH_SHORT).show();
             quizFourDisplay.setVisibility(View.GONE);
             quizFourOptions.setVisibility(View.GONE);
-            Button toQuizFiveButton = (Button) findViewById(R.id.go_to_quiz_five);
+            Button toQuizFiveButton = findViewById(R.id.go_to_quiz_five);
             toQuizFiveButton.setVisibility(View.VISIBLE);
 
         } else {
@@ -187,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "SubhaanAllah! You're wrong! " + numberOfQuizLeft + " more to go!", Toast.LENGTH_SHORT).show();
             quizFourDisplay.setVisibility(View.GONE);
             quizFourOptions.setVisibility(View.GONE);
-            Button toQuizFiveButton = (Button) findViewById(R.id.go_to_quiz_five);
+            Button toQuizFiveButton = findViewById(R.id.go_to_quiz_five);
             toQuizFiveButton.setVisibility(View.VISIBLE);
         }
     }
@@ -196,17 +200,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void quizFive(View view) {
         //        quiz 5 comes up
-        Button toQuizFiveButton = (Button) findViewById(R.id.go_to_quiz_five);
+        Button toQuizFiveButton = findViewById(R.id.go_to_quiz_five);
         toQuizFiveButton.setVisibility(View.GONE);
-        TextView quizFiveDisplay = (TextView) findViewById(R.id.quiz_five);
+        TextView quizFiveDisplay = findViewById(R.id.quiz_five);
         quizFiveDisplay.setVisibility(View.VISIBLE);
-        RadioGroup quizFiveOptionsDisplay = (RadioGroup) findViewById(R.id.quiz_five_options);
+        RadioGroup quizFiveOptionsDisplay = findViewById(R.id.quiz_five_options);
         quizFiveOptionsDisplay.setVisibility(View.VISIBLE);
     }
 
     public void solveQuizFive(View view) {
-        TextView quizFiveDisplay = (TextView) findViewById(R.id.quiz_five);
-        RadioGroup quizFiveOptions = (RadioGroup) findViewById(R.id.quiz_five_options);
+        TextView quizFiveDisplay = findViewById(R.id.quiz_five);
+        RadioGroup quizFiveOptions = findViewById(R.id.quiz_five_options);
         int answerForQuizFive = quizFiveOptions.getCheckedRadioButtonId();
 
         if (answerForQuizFive == R.id.quiz_five_option_a) {
@@ -215,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Ma sha'a Allah! You're very correct! " + " No more question.", Toast.LENGTH_SHORT).show();
             quizFiveDisplay.setVisibility(View.GONE);
             quizFiveOptions.setVisibility(View.GONE);
-            Button printReportCard = (Button) findViewById(R.id.report_card);
+            Button printReportCard = findViewById(R.id.report_card);
             printReportCard.setVisibility(View.VISIBLE);
 
         } else {
@@ -223,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "SubhaanAllah! You're wrong! " + " No more question.", Toast.LENGTH_SHORT).show();
             quizFiveDisplay.setVisibility(View.GONE);
             quizFiveOptions.setVisibility(View.GONE);
-            Button printReportCard = (Button) findViewById(R.id.report_card);
+            Button printReportCard = findViewById(R.id.report_card);
             printReportCard.setVisibility(View.VISIBLE);
         }
     }
@@ -231,16 +235,16 @@ public class MainActivity extends AppCompatActivity {
 //    private static final String TAG = "MyActivity";
 
     public void reportCard(View view) {
-        Button printReportCard = (Button) findViewById(R.id.report_card);
+        Button printReportCard = findViewById(R.id.report_card);
         printReportCard.setVisibility(View.GONE);
 
-        TextView summaryReport = (TextView) findViewById(R.id.summary_report);
+        TextView summaryReport = findViewById(R.id.summary_report);
         summaryReport.setVisibility(View.VISIBLE);
 
-        Button replay = (Button) findViewById(R.id.try_again);
+        Button replay = findViewById(R.id.try_again);
         replay.setVisibility(View.VISIBLE);
 
-        EditText retrievePlayerName = (EditText) findViewById(R.id.player_name_input);
+        EditText retrievePlayerName = findViewById(R.id.player_name_input);
         String playerName = retrievePlayerName.getText().toString();
 
         int grade = scorePoint * 100;
@@ -251,30 +255,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void reset(View view) {
-        LinearLayout hideStartBar = (LinearLayout) findViewById(R.id.start_bar);
+        LinearLayout hideStartBar = findViewById(R.id.start_bar);
         hideStartBar.setVisibility(View.VISIBLE);
 
-        TextView summaryReport = (TextView) findViewById(R.id.summary_report);
+        TextView summaryReport = findViewById(R.id.summary_report);
         summaryReport.setVisibility(View.GONE);
 
-        Button replay = (Button) findViewById(R.id.try_again);
+        Button replay = findViewById(R.id.try_again);
         replay.setVisibility(View.GONE);
         scorePoint = 0;
         numberOfQuizLeft = 5;
 
-        RadioGroup quizOneOptions = (RadioGroup) findViewById(R.id.quiz_one_options);
+        RadioGroup quizOneOptions = findViewById(R.id.quiz_one_options);
         quizOneOptions.clearCheck();
 
-        RadioGroup quizTwoOptions = (RadioGroup) findViewById(R.id.quiz_two_options);
+        RadioGroup quizTwoOptions = findViewById(R.id.quiz_two_options);
         quizTwoOptions.clearCheck();
 
-        RadioGroup quizThreeOptions = (RadioGroup) findViewById(R.id.quiz_three_options);
+        RadioGroup quizThreeOptions = findViewById(R.id.quiz_three_options);
         quizThreeOptions.clearCheck();
 
-        RadioGroup quizFourOptions = (RadioGroup) findViewById(R.id.quiz_four_options);
+        RadioGroup quizFourOptions = findViewById(R.id.quiz_four_options);
         quizFourOptions.clearCheck();
 
-        RadioGroup quizFiveOptions = (RadioGroup) findViewById(R.id.quiz_five_options);
+        RadioGroup quizFiveOptions = findViewById(R.id.quiz_five_options);
         quizFiveOptions.clearCheck();
     }
 
