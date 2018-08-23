@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="14dp">
 
@@ -16,14 +16,16 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginTop="14dp"
-            android:src="@drawable/i_quiz_logo" />
+            android:src="@drawable/i_quiz_logo"
+            android:contentDescription="@string/mosque_logo"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:text="Test Your Islamic Knowledge"
+            android:text="@string/label"
             android:textAllCaps="true"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -39,7 +41,7 @@
                 android:id="@+id/player_name_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter your name"
+                android:hint="@string/edit_text_hint"
                 android:imeOptions="actionDone|actionUnspecified"
                 android:inputType="textCapWords"
                 android:textAlignment="center"
@@ -53,14 +55,14 @@
                 android:layout_gravity="center"
                 android:enabled="false"
                 android:onClick="quizOne"
-                android:text="start quiz" />
+                android:text="@string/start_quiz_button" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/quiz_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1. ------ is the total submission to the will of almighty Allah."
+            android:text="@string/quiz_one"
             android:textSize="16sp"
             android:visibility="invisible" />
 
@@ -76,21 +78,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizOne"
-                android:text="Islam" />
+                android:text="@string/quiz_one_option_a" />
 
             <RadioButton
                 android:id="@+id/quiz_one_option_b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizOne"
-                android:text="Eeman" />
+                android:text="@string/quiz_one_option_b" />
 
             <RadioButton
                 android:id="@+id/quiz_one_option_c"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizOne"
-                android:text="Ikhlas" />
+                android:text="@string/quiz_one_option_c" />
         </RadioGroup>
 
         <Button
@@ -99,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:onClick="quizTwo"
-            android:text="next"
+            android:text="@string/next_button"
             android:visibility="gone" />
 
         <!--Quiz two display-->
@@ -107,7 +109,7 @@
             android:id="@+id/quiz_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2. ----- conquered Egypt for Islam during the tenure of caliph -----"
+            android:text="@string/quiz_two"
             android:textSize="16sp"
             android:visibility="invisible" />
 
@@ -123,21 +125,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizTwo"
-                android:text="Khaleed bn Waleed, Abubakr bn Abi Qahaafah" />
+                android:text="@string/quiz_two_option_a" />
 
             <RadioButton
                 android:id="@+id/quiz_two_option_b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizTwo"
-                android:text="Khaleed bn Waleed, Umar bn al-Khattaab" />
+                android:text="@string/quiz_two_option_b" />
 
             <RadioButton
                 android:id="@+id/quiz_two_option_c"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizTwo"
-                android:text="Amr bn 'Aas, Umar bn al-Khattaab" />
+                android:text="@string/quiz_two_option_c" />
         </RadioGroup>
 
         <Button
@@ -146,7 +148,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:onClick="quizThree"
-            android:text="next"
+            android:text="@string/next_button"
             android:visibility="gone" />
 
         <!--Quiz three display-->
@@ -154,7 +156,7 @@
             android:id="@+id/quiz_three"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3. Prophetic hadeeth may represent his "
+            android:text="@string/quiz_three"
             android:textSize="16sp"
             android:visibility="invisible" />
 
@@ -170,21 +172,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizThree"
-                android:text="sayings and actions only" />
+                android:text="@string/quiz_three_option_a" />
 
             <RadioButton
                 android:id="@+id/quiz_three_option_b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizThree"
-                android:text="actions, sayings and approval" />
+                android:text="@string/quiz_three_option_b" />
 
             <RadioButton
                 android:id="@+id/quiz_three_option_c"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizThree"
-                android:text="sayings and approval only" />
+                android:text="@string/quiz_three_option_c" />
         </RadioGroup>
 
         <Button
@@ -193,7 +195,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:onClick="quizFour"
-            android:text="next"
+            android:text="@string/next_button"
             android:visibility="gone" />
 
         <!--Quiz four display-->
@@ -201,7 +203,7 @@
             android:id="@+id/quiz_four"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4. Sunan Rawaatib in totality equals"
+            android:text="@string/quiz_four"
             android:textSize="16sp"
             android:visibility="invisible" />
 
@@ -217,21 +219,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizFour"
-                android:text="13 rakaats" />
+                android:text="@string/quiz_four_option_a" />
 
             <RadioButton
                 android:id="@+id/quiz_four_option_b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizFour"
-                android:text="11 rakaats" />
+                android:text="@string/quiz_four_option_b" />
 
             <RadioButton
                 android:id="@+id/quiz_four_option_c"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizFour"
-                android:text="12 rakaats" />
+                android:text="@string/quiz_four_option_c" />
         </RadioGroup>
 
         <Button
@@ -240,7 +242,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:onClick="quizFive"
-            android:text="next"
+            android:text="@string/next_button"
             android:visibility="gone" />
 
         <!--Quiz four display-->
@@ -248,7 +250,7 @@
             android:id="@+id/quiz_five"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5. A father, mother and male sibling survived a dead muslim man. What is the inheritance portion of the sibling? "
+            android:text="@string/quiz_five"
             android:textSize="16sp"
             android:visibility="invisible" />
 
@@ -264,21 +266,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizFive"
-                android:text="0" />
+                android:text="@string/quiz_five_option_a" />
 
             <RadioButton
                 android:id="@+id/quiz_five_option_b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizFive"
-                android:text="1/6" />
+                android:text="@string/quiz_five_option_b" />
 
             <RadioButton
                 android:id="@+id/quiz_five_option_c"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="solveQuizFive"
-                android:text="1/3" />
+                android:text="@string/quiz_five_option_c" />
         </RadioGroup>
 
         <Button
@@ -287,7 +289,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:onClick="reportCard"
-            android:text="report card"
+            android:text="@string/report_card_button"
             android:visibility="gone" />
         <!--Summary Report Display-->
         <TextView
@@ -303,7 +305,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="reset"
-            android:text="Try Again"
+            android:text="@string/reset_button"
             android:visibility="gone" />
     </LinearLayout>
 </ScrollView>

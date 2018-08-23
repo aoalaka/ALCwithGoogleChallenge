@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">Islamic Quizzer</string>
+    <string name="mosque_logo">start_page_logo</string>
+
+    <string name="label">Test Your Islamic Knowledge</string>
+    <string name="edit_text_hint">Enter your name</string>
+    <string name="start_quiz_button">start quiz</string>
+
+    <string name="quiz_one">1. ------ is the total submission to the will of almighty Allah.</string>
+    <string name="quiz_one_option_a">Islam</string>
+    <string name="quiz_one_option_b">Eeman</string>
+    <string name="quiz_one_option_c">Ihsan</string>
+
+    <string name="quiz_two">1. ------ conquered Egypt for Islam during the tenure of caliph ------.</string>
+    <string name="quiz_two_option_a">Khaleed bn Waleed, Abubakr bn Abi Qahaafah</string>
+    <string name="quiz_two_option_b">Khaleed bn Waleed, Umar bn al-Khattaab</string>
+    <string name="quiz_two_option_c">Amr bn \'Aas, Umar bn al-Khattaab</string>
+
+    <string name="quiz_three">3. Prophetic hadeeth may represent his </string>
+    <string name="quiz_three_option_a">sayings and actions only</string>
+    <string name="quiz_three_option_b">actions, sayings and approval</string>
+    <string name="quiz_three_option_c">sayings and approval only</string>
+
+    <string name="quiz_four">4. Sunan Rawaatib in totality equals</string>
+    <string name="quiz_four_option_a">13 rakaats</string>
+    <string name="quiz_four_option_b">11 rakaats</string>
+    <string name="quiz_four_option_c">12 rakaats</string>
+
+    <string name="quiz_five">5. A father, mother and male sibling survived a dead muslim man. What is the inheritance portion of the sibling? </string>
+    <string name="quiz_five_option_a">0</string>
+    <string name="quiz_five_option_b">&#8531;</string>
+    <string name="quiz_five_option_c">&#8537;</string>
+
+    <string name="next_button">next</string>
+    <string name="report_card_button">report card</string>
+    <string name="reset_button">try again</string>
+
 </resources>
